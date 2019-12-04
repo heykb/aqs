@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="generator/config.properties"/>
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+
+        <plugin type="com.zhu.LombokPlugin"></plugin>
+        <plugin type="com.zhu.CommentPlugin"></plugin>
+        <plugin type="${mapper.plugin}">
+            <property name="mappers" value="${mapper.Mapper}"/>
+        </plugin>
+
+        <jdbcConnection driverClass="${jdbc.driverClass}" connectionURL="${jdbc.url}" userId="${jdbc.user}"
+                        password="${jdbc.password}"/>
+
+        <javaModelGenerator targetPackage="com.zhu.aqs.model" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="mapper/" targetProject="src/main/resources"/>
+        <javaClientGenerator targetPackage="com.zhu.aqs.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+
+        <table tableName="t_order" domainObjectName="Order"/>
+    </context>
+</generatorConfiguration>

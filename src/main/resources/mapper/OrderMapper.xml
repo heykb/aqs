@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhu.aqs.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.zhu.aqs.model.Order">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="stock" jdbcType="INTEGER" property="stock" typeHandler="com.zhu.aqs.typehandler.MyTypeHandler" />
+  </resultMap>
+
+<select id="select0" resultMap="BaseResultMap">
+  select * from t_order
+</select>
+</mapper>
